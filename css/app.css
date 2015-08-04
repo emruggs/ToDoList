@@ -1,0 +1,28 @@
+
+
+#heading, #input-row {
+    background-color: #03A9F4;
+}
+
+#todolist {
+    list-style: none;
+    background-color: #FFFFFF;
+}
+
+ul {
+    list-style: none;
+}
+
+h1, h4 {
+    color: #FFFFFF;
+}
+
+#todolist li .completed-true {
+    color: #ccc;
+    margin-left: 30px;
+    text-decoration: line-through;
+}
+
+li.focus {
+    background-color: #E040FB;
+}

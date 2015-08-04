@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html ng-app="todo">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToDo List - Matt W.</title>
+    
+    
+    <script type="text/javascript" src="js/angular.min.js" async defer></script>
+    <link  rel="stylesheet" href="css/foundation.min.css">
+    <link  rel="stylesheet" href="css/normalize.css">
+    <link  rel="stylesheet" href="css/app.css">
+</head>
+<body>
+   <div>
+    <div class="row" id="heading">
+        <h1>To-Do List</h1>
+    </div>
+    <div class="row todo-wrapper" ng-controller="TodoCtrl" id="input-row">
+        <input class="add-input" placeholder="I need to..." type="text" ng-model="taskName" ng-keyup="addTask()"/>
+        <ul id="todolist">
+            <li ng-repeat="task in tasklist track by $index" ng-mouseenter="task.showdelete = true; item= 'focus'" ng-mouseleave="task.showdelete = false;                 item = 'nofocus'" ng-class='item'>
+                <input type="checkbox" name="checkbox" ng-model="task.completed" />
+                <span class="completed-{{task.completed}}">{{task.name}}</span>
+                <span class="delete icon" title="Delete Task" ng-show="task.show" ng-click="deleteTask(tasklist.indexOf(task))"></span>
+            </li>
+        </ul>
+    </div>
+    
+   </div>
+   
+    <script src="js/foundation.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
