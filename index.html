@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>ToDo List - Matt W.</title>
     
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    
     
     <script type="text/javascript" src="js/angular.min.js" async defer></script>
     <link  rel="stylesheet" href="css/foundation.min.css">
@@ -20,10 +23,10 @@
     <div class="row todo-wrapper" ng-controller="TodoCtrl" id="input-row">
         <input class="add-input" placeholder="I need to..." type="text" ng-model="taskName" ng-keyup="addTask()"/>
         <ul id="todolist">
-            <li ng-repeat="task in tasklist track by $index" ng-mouseenter="task.showdelete = true; item= 'focus'" ng-mouseleave="task.showdelete = false;                 item = 'nofocus'" ng-class='item'>
+            <li ng-repeat="task in tasklist track by $index" ng-mouseenter="task.show = true; item= 'focus'" ng-mouseleave="task.show = false;                 item = 'nofocus'" ng-class='item'>
                 <input type="checkbox" name="checkbox" ng-model="task.completed" />
                 <span class="completed-{{task.completed}}">{{task.name}}</span>
-                <span class="delete icon" title="Delete Task" ng-show="task.show" ng-click="deleteTask(tasklist.indexOf(task))"></span>
+                <span title="Delete Task" ng-show="task.show" ng-click="deleteTask(tasklist.indexOf(task))"><i class="fa fa-lg fa-trash"></i></span>
             </li>
         </ul>
     </div>
